@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SCM | Update Event</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/add_event.css' %}">
+
+  <style>
+    /* Set background image for the entire page */
+    body {
+      background-image: url('https://static.vecteezy.com/system/resources/previews/006/413/040/non_2x/blue-gradient-pastle-soft-beautiful-abstract-background-you-can-use-this-background-for-your-content-like-as-technology-video-gaming-promotion-card-banner-sports-presentation-website-etc-vector.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;
+      /* Other background properties */
+    }
+
+    /* Style for the container box */
+    .box {
+      background-image: url('https://image.slidesdocs.com/responsive-images/docs/special-training-camp-for-blue-basketball-sports-page-border-background-word-template_433b2a8674__1131_1600.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;
+      /* Other background properties */
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid header text-center">
+  Manage Event
+</div>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 box">
+      Update Event
+
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="inputbox">
+            <form action="{% url 'scmapp:db_update_event' id=event.eid %}" method="post">
+              {% csrf_token %}
+              Name of event<br>
+              <input type="text" name="name" autocomplete="off" value="{{ event.name }}" required><br>
+
+              Date<br>
+              <input type="date" name="date" autocomplete="off" value="{{ event.date }}" required><br>
+
+              Time<br>
+              <input type="time" name="time" value="{{ event.time }}" min="06:00" max="18:00" required><br>
+
+              Duration(hours)<br>
+              <input type="number" name="duration" autocomplete="off" value="{{ event.duration }}" min="1" required>
+
+              <div class="footer">
+                <input type="reset" value="Reset" name="submit">
+                <input type="submit" value="Update" name="submit">
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      <a href="{% url 'scmapp:admin_event' %}">Back</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sports Club Management</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+
+<body style="background-image: url('https://static.vecteezy.com/system/resources/previews/006/413/040/non_2x/blue-gradient-pastle-soft-beautiful-abstract-background-you-can-use-this-background-for-your-content-like-as-technology-video-gaming-promotion-card-banner-sports-presentation-website-etc-vector.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<!--<body style="background: #E5E5E5;">-->
+  <div>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <!-- Brand/logo -->
+      <a class="navbar-brand" href="#">Sports Club</a>
+  
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'scmapp:user_event' %}">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'scmapp:ground_booking' %}">Grounds</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'scmapp:admin_login' %}">Admin</a>
+          </li>
+          <!-- Add more list items for other navigation links -->
+        </ul>
+      </div>
+      
+      <!-- Right-aligned content -->
+      <div class="ml-auto d-flex align-items-center">
+        <span style="color: rgb(232, 229, 229); font-size: 22px;">Welcome {{ name }}</span>
+        <span class="ml-3"></span>
+        <div class="btn-group" role="group" aria-label="Logout button">
+          <a href="{% url 'scmapp:user_logout' %}" class="btn btn-outline-light" style="font-size: 20px;">Logout</a>
+        </div>
+      </div>
+    </nav>
+  
+    <!-- Status message -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <span style="font-size: 18px; color: rgb(229, 227, 227);">{{ status }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add a bit of gap between sections -->
+  <div style="margin-top: 40px;"></div>
+
+  <section data-bs-version="5.1" class="article2 cid-u8iSXoCo0G" id="about-us-2-u8iSXoCo0G">
+	
+
+	
+	
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-12 col-lg-6 image-wrapper">
+          <img class="img-fluid" src="https://www.sportireland.ie/sites/default/files/styles/widescreen_television/public/2019-11/cricket-group-shotisobel-joyce-elena-tice-kate-mckenna-cecelia-joyce-and-lucy-oreilly.jpg?h=09b0c5e3&itok=5EHReKg_" alt="" style="border-radius: 20px;">
+        </div>
+        <div class="col-12 col-md-12 col-lg">
+          <div class="text-wrapper align-left">
+            <h2 class="mbr-section-title mbr-fonts-style mb-4 display-4">
+              <strong>Who We Are</strong>
+            </h2>
+            <p class="mbr-text align-left mbr-fonts-style mb-3 display-7">We are the ultimate playground for sports enthusiasts, where every game is a victory waiting to happen.</p>
+  
+            <p class="mbr-text align-left mbr-fonts-style mb-3 display-7">Join our tribe of thrill-seekers and unleash your inner champion on our courts and fields.</p>
+  
+            <p class="mbr-text align-left mbr-fonts-style mb-3 display-7">From rookies to pros, we welcome all to experience the rush of competition and camaraderie at Sportify.</p>
+  
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add a bit of gap between sections -->
+  <div style="margin-top: 40px;"></div>
+  
+  <section data-bs-version="5.1" class="features03 cid-u8iSXoCCKN" id="events-1-u8iSXoCCKN">
+  
+  
+    <div class="container-fluid">
+      <div class="row justify-content-center mb-5">
+        <div class="col-12 text-center mb-4">
+            <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-4">
+              <strong>Upcoming Events</strong>
+            </h4>
+            
+          
+        </div>
+      </div>
+      <div class="container mt-4">
+        <div class="row justify-content-start">
+          <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="item features-image active">
+              <div class="item-wrapper">
+                <div class="item-img mb-3">
+                  <img src="{% static 'res/basketball.jpg' %}" class="img-fluid" style="width: 240px; height: 240px; border-radius: 10px;">
+                </div>
+                <div class="item-content text-center" style="color: rgb(17, 16, 16);">
+                  <h5 class="item-title mbr-fonts-style mt-0 mb-2 display-5">
+                    <strong>Basketball Bonanza</strong>
+                  </h5>
+                  <p class="mbr-text mbr-fonts-style mb-3 display-7">April 5, 2024</p>
+                  <p class="mbr-text mbr-fonts-style mb-3 display-7">Dribble, shoot, and dunk your way to glory in our high-flying basketball showdown. Are you game?</p>
+                  <div class="mbr-section-btn item-footer">
+                    <a href="{% url 'scmapp:user_event' %}" class="btn btn-primary">Join</a> <!-- Added Bootstrap button classes -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="item features-image active">
+              <div class="item-wrapper">
+                <div class="item-img mb-3">
+                  <img src="{% static 'res/soccer.jpg' %}" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 10px;">
+                </div>
+                <div class="item-content text-center" style="color: rgb(16, 15, 15);">
+                  <h5 class="item-title mbr-fonts-style mt-0 mb-2 display-5">
+                    <strong>Soccer Showdown</strong>
+                  </h5>
+                  <p class="mbr-text mbr-fonts-style mb-3 display-7">April 12, 2024</p>
+                  <p class="mbr-text mbr-fonts-style mb-3 display-7">Kick off the excitement with our heart-pounding soccer clash. Lace up and show off your skills on the field!</p>
+                  <div class="mbr-section-btn item-footer">
+                    <a href="{% url 'scmapp:user_event' %}" class="btn btn-primary">Join</a> <!-- Added Bootstrap button classes -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="item features-image active">
+              <div class="item-wrapper">
+                <div class="item-img mb-3">
+                  <img src="{% static 'res/tennis.jpg' %}" class="img-fluid" style="width: 240px; height: 240px; border-radius: 10px;">
+                </div>
+                <div class="item-content text-center" style="color: rgb(16, 15, 15);">
+                  <h5 class="item-title mbr-fonts-style mt-0 mb-2 display-5">
+                    <strong>Tennis Tournament</strong>
+                  </h5>
+                  <p class="mbr-text mbr-fonts-style mb-3 display-7">April 19, 2024</p>
+                  <p class="mbr-text mbr-fonts-style mb-3 display-7">Serve, volley, and smash your way through our thrilling tennis tournament. Game, set, match – it's all on you!</p>
+                  <div class="mbr-section-btn item-footer">
+                    <a href="{% url 'scmapp:user_event' %}" class="btn btn-primary">Join</a> <!-- Added Bootstrap button classes -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="item features-image active">
+              <div class="item-wrapper">
+                <div class="item-img mb-3">
+                  <img src="{% static 'res/volleyball.jpg' %}" class="img-fluid" style="width: 240px; height: 240px; border-radius: 10px;">
+                </div>
+                <div class="item-content text-center" style="color: rgb(8, 7, 7);">
+                  <h5 class="item-title mbr-fonts-style mt-0 mb-2 display-5">
+                    <strong>Volleyball Vibes</strong>
+                  </h5>
+                  <p class="mbr-text mbr-fonts-style mb-3 display-7">April 26, 2024</p>
+                  <p class="mbr-text mbr-fonts-style mb-3 display-7">Bump, set, spike! Dive into the sandy arena and feel the beach vibes in our epic volleyball showdown. Ready to bump up the fun?</p>
+                  <div class="mbr-section-btn item-footer">
+                    <a href="{% url 'scmapp:user_event' %}" class="btn btn-primary">Join</a> <!-- Added Bootstrap button classes -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+  
+      </div>
+    </div>
+  </section>
+  <!-- Add a bit of gap between sections -->
+  <div style="margin-top: 40px;"></div>
+
+  <section data-bs-version="5.1" class="features10 cid-u8iSXoCzbE" id="metrics-2-u8iSXoCzbE">
+  
+
+  
+  
+    <div class="container">
+      
+      <div class="row justify-content-center">
+        <div class="item features-without-image col-12 col-md-6 col-lg-4 text-center">
+          <div class="item-wrapper">
+            <div class="card-box align-left">
+              
+              <h5 class="card-title mbr-fonts-style display-1" style="font-size: 30px;">
+                <strong>100+</strong>
+              </h5>
+              <p class="card-text mbr-fonts-style mb-3 display-7">Exciting Events</p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="item features-without-image col-12 col-md-6 col-lg-4 text-center">
+          <div class="item-wrapper">
+            <div class="card-box align-left">
+              
+              <h5 class="card-title mbr-fonts-style display-1" style="font-size: 30px;">
+                <strong>24/7</strong>
+              </h5>
+              <p class="card-text mbr-fonts-style mb-3 display-7">Ground Booking</p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="item features-without-image col-12 col-md-6 col-lg-4 text-center">
+          <div class="item-wrapper">
+            <div class="card-box align-left">
+              
+              <h5 class="card-title mbr-fonts-style display-1" style="font-size: 30px;">
+                <strong>Join Now!</strong>
+              </h5>
+              <p class="card-text mbr-fonts-style mb-3 display-7">Register Today</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
+
+</body>
+</html>
