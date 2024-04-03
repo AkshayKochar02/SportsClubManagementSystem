@@ -1,4 +1,4 @@
-"""Django's command-line utility for administrative tasks."""
+"""SportsClubManagementSystem project with python program"""
 import os
 import sys
 from django.core.management import execute_from_command_line
