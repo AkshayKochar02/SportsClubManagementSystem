@@ -26,7 +26,7 @@ SECRET_KEY = 'czha6a=ow(iw^4%^orzg$)lo1riu@a(=abn)g(^g1scf8$qt6='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['71d9685708a34ed4b2ecbd3eb9f04787.vfs.cloud9.eu-west-1.amazonaws.com', 'x23168188elbapp-env.eba-gwn8tpcg.eu-west-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['x23168188devopsapp-env.eba-fzht6dhe.eu-west-1.elasticbeanstalk.com']
 
 
 # Application definition
