@@ -12,7 +12,7 @@ phases:
   commands:
    - python --version
    - pylint $CODEBUILD_SRC_DIR/*.py
-   - pylint $CODEBUILD_SRC_DIR/SCM-django/*.py
+   - pylint $CODEBUILD_SRC_DIR/Sports_Club_Management_System_in_Django/*.py
 
    
 artifacts:
