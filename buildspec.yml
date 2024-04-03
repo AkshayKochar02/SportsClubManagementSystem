@@ -12,7 +12,8 @@ phases:
   commands:
    - python --version
    - pylint $CODEBUILD_SRC_DIR/*.py
-   - pylint $CODEBUILD_SRC_DIR/Sports_Club_Management_System_in_Django/sportsClubManagement-django/SCM/*.py $CODEBUILD_SRC_DIR/Sports_Club_Management_System_in_Django/sportsClubManagement-django/scmapp/*.py
+   - find $CODEBUILD_SRC_DIR/Sports_Club_Management_System_in_Django/sportsClubManagement-django/SCM/ -name "*.py" -exec pylint {} +
+   - find $CODEBUILD_SRC_DIR/Sports_Club_Management_System_in_Django/sportsClubManagement-django/scmapp/ -name "*.py" -exec pylint {} +
 
 
    
