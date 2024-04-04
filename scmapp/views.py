@@ -7,12 +7,14 @@ from scmapp.models import User, Admin, Event, Book_ground
 
 # Create your views here.
 
-#User Registration / Login Page
+
 def index(request):
+#User Registration / Login Page
     return render(request,'registration.html')
 
-#User Home Page
+
 def user_home(request):
+#User Home Page
     if 'uname' in request.session:
         data = {'name':request.session.get('uname')}
 
@@ -24,8 +26,9 @@ def user_home(request):
         data = {'status':'You need to login first'}
         return render(request,'registration.html',context=data)
 
-#User Event Page
+
 def user_event(request):
+#User Event Page
     if 'uname' in request.session:
         event = Event.objects.all()
         data = {'event':event}
@@ -34,8 +37,9 @@ def user_event(request):
         data = {'status':'You need to login first'}
         return render(request,'registration.html',context=data)
 
-#User Ground Booking Page
+
 def ground_booking(request):
+#User Ground Booking Page
     if 'uname' in request.session:
         data = {'date':datetime.date.today()}
         return render(request,'ground_booking.html',context=data)
@@ -43,8 +47,9 @@ def ground_booking(request):
         data = {'status':'You need to login first'}
         return render(request,'registration.html',context=data)
 
-#User Logout
+
 def user_logout(request):
+#User Logout
     if 'uname' in request.session:
         del request.session['uname']
 
@@ -53,12 +58,14 @@ def user_logout(request):
 
     return render(request,'registration.html')
 
-#Admin Login Page
+
 def admin_login(request):
+#Admin Login Page
     return render(request,'admin_login.html')
 
-#Admin Home Page
+
 def admin_home(request):
+#Admin Home Page
     if 'aname' in request.session:
         data = {'name':request.session.get('aname')}
         return render(request,'admin_home.html',context=data)
@@ -66,8 +73,9 @@ def admin_home(request):
         data = {'status':'You need to login first'}
         return render(request,'admin_login.html',context=data)
 
-#Admin View Bookings
+
 def admin_booking(request):
+#Admin View Bookings
     if 'aname' in request.session:
         booking = Book_ground.objects.all()
         data = {'booking':booking}
@@ -76,8 +84,9 @@ def admin_booking(request):
         data = {'status':'You need to login first'}
         return render(request,'admin_login.html',context=data)
 
-#Admin Manage Event Page
+
 def admin_event(request):
+#Admin Manage Event Page
     if 'aname' in request.session:
         event = Event.objects.all()
         data = {'event':event}
@@ -90,8 +99,9 @@ def admin_event(request):
         data = {'status':'You need to login first'}
         return render(request,'admin_login.html',context=data)
 
-#Admin Update Event Page
+
 def update_event(request,id):
+#Admin Update Event Page
     if 'aname' in request.session:
         event = Event.objects.get(eid=id)
         event.date = event.date.strftime('%Y-%m-%d')
@@ -102,15 +112,17 @@ def update_event(request,id):
         data = {'status':'You need to login first'}
         return render(request,'admin_login.html',context=data)
 
-#Admin Add Event Page
+
 def add_event(request):
+#Admin Add Event Page
     if 'aname' in request.session:
         return render(request,'add_event.html')
     else:
         return HttpResponse('Something went wrong')
 
-#Admin Logout
+
 def admin_logout(request):
+#Admin Logout
     if 'aname' in request.session:
         del request.session['aname']
 
@@ -119,8 +131,9 @@ def admin_logout(request):
 
     return render(request,'admin_login.html')
 
-#BACKEND -> For User Registration
+
 def test(request):
+#BACKEND -> For User Registration    
     if request.method == 'POST':
         name = request.POST.get('uname')
         email = request.POST.get('email')
@@ -139,8 +152,9 @@ def test(request):
     else:
         return HttpResponse("Something went wrong!!!!!")
 
-#BACKEND -> For User Login
+
 def login_user(request):
+#BACKEND -> For User Login
     if request.method == 'POST':
         name = request.POST.get('name')
         password = request.POST.get('password')
@@ -161,8 +175,9 @@ def login_user(request):
     else:
         return HttpResponse("Something went wrong!!!!!")
 
-#BACKEND -> For Admin Login
+
 def login_admin(request):
+#BACKEND -> For Admin Login
     if request.method == 'POST':
         name = request.POST.get('name')
         password = request.POST.get('password')
@@ -184,8 +199,9 @@ def login_admin(request):
     else:
         return HttpResponse("Something went wrong faffsffa!!!!!")
 
-#BACKEND -> For Ground Booking
+
 def db_ground_booking(request):
+#BACKEND -> For Ground Booking
     if request.method == 'POST':
         mobile = request.POST.get('mobile')
         date = request.POST.get('date')
@@ -204,15 +220,16 @@ def db_ground_booking(request):
     else:
         return HttpResponse("Something went wrong!!!!!")
 
+
+def db_update_event(request,my_id):
 #BACKEND -> For Update Event
-def db_update_event(request,id):
     if request.method == 'POST':
         name = request.POST.get('name')
         date = request.POST.get('date')
         time = request.POST.get('time')
         duration = request.POST.get('duration')
 
-        event = Event.objects.get(eid=id)
+        event = Event.objects.get(eid=my_id)
         event.name = name
         event.date = date
         event.time = time
@@ -224,8 +241,9 @@ def db_update_event(request,id):
     else:
         return HttpResponse("Something went wrong!!!!!")
 
-#BACKEND -> For Delete Events
+
 def db_delete_event(request,my_id):
+#BACKEND -> For Delete Events
     if request.method == 'GET':
         event = Event.objects.get(eid=my_id)
         event.delete()
@@ -235,8 +253,9 @@ def db_delete_event(request,my_id):
     else:
         return HttpResponse("Something went wrong!!!!!")
 
-#BACKEND -> For Add Event
+
 def db_add_event(request):
+#BACKEND -> For Add Event
     if request.method == 'POST':
         name = request.POST.get('name')
         date = request.POST.get('date')
