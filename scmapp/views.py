@@ -225,9 +225,9 @@ def db_update_event(request,id):
         return HttpResponse("Something went wrong!!!!!")
 
 #BACKEND -> For Delete Events
-def db_delete_event(request,id):
+def db_delete_event(request,my_id):
     if request.method == 'GET':
-        event = Event.objects.get(eid=id)
+        event = Event.objects.get(eid=my_id)
         event.delete()
 
         request.session['event_status'] = 'Event deleted successfuly'
