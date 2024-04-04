@@ -133,7 +133,7 @@ def admin_logout(request):
 
 
 def test(request):
- #BACKEND -> For User Registration  
+ #BACKEND -> For User Registration
     if request.method == 'POST':
         name = request.POST.get('uname')
         email = request.POST.get('email')
