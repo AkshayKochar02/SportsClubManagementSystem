@@ -1,7 +1,8 @@
+"""Models python file docstring """
 from django.db import models
 # from django.contrib.auth.models import User
 
-# Create your models here.
+"""Models creation """
 class User(models.Model):
     uid = models.AutoField(primary_key=True)
     name = models.CharField(max_length=20)

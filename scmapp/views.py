@@ -1,3 +1,4 @@
+"""views python file docstring """
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from scmapp.models import User, Admin, Event, Book_ground
