@@ -1,7 +1,7 @@
 """views python file docstring """
 import datetime
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from scmapp.models import User, Admin, Event, Book_ground
 
 
@@ -100,10 +100,10 @@ def admin_event(request):
         return render(request,'admin_login.html',context=data)
 
 
-def update_event(request,id):
+def update_event(request,my_id):
  #Admin Update Event Page
     if 'aname' in request.session:
-        event = Event.objects.get(eid=id)
+        event = Event.objects.get(eid=my_id)
         event.date = event.date.strftime('%Y-%m-%d')
         event.time = event.time.strftime('%H:%M:%S')
         data = {'event':event}
@@ -133,7 +133,7 @@ def admin_logout(request):
 
 
 def test(request):
- #BACKEND -> For User Registration    
+ #BACKEND -> For User Registration   
     if request.method == 'POST':
         name = request.POST.get('uname')
         email = request.POST.get('email')
@@ -242,9 +242,9 @@ def db_update_event(request,my_id):
         return HttpResponse("Something went wrong!!!!!")
 
 
-def db_delete_event(request,my_id): 
- #BACKEND -> For Delete Events 
-    if request.method == 'GET': 
+def db_delete_event(request,my_id):
+ #BACKEND -> For Delete Events
+    if request.method == 'GET':
         event = Event.objects.get(eid=my_id)
         event.delete()
 
