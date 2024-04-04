@@ -12,7 +12,7 @@ phases:
   commands:
    - python --version
    - pylint $CODEBUILD_SRC_DIR/*.py
-   - pylint --disable=E1101,R1705,W0718,C0116,C0325,W0612,C0103 $CODEBUILD_SRC_DIR/scmapp/*.py
+   - pylint --disable=E1101,R1705,W0718,C0116,C0325,W0612,C0103,C0115 $CODEBUILD_SRC_DIR/scmapp/*.py
    - pylint $CODEBUILD_SRC_DIR/scmapp/*.py
    - pylint $CODEBUILD_SRC_DIR/SCM/*.py
    
