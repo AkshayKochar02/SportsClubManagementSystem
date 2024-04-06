@@ -31,7 +31,7 @@ artifacts:
 phases:
   install:
     runtime-versions:
-      java: openjdk11
+      java: corretto21
   pre_build:
     commands:
       - apt-get update
