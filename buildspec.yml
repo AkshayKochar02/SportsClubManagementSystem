@@ -22,7 +22,7 @@ artifacts:
  files:
   - '**/*'
   
-  env:
+ env:
   secrets-manager:
     LOGIN: prod/sonar:sonartoken
     HOST: prod/sonar:HOST
