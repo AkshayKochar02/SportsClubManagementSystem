@@ -100,10 +100,10 @@ def admin_event(request):
         return render(request,'admin_login.html',context=data)
 
 
-def update_event(request,my_id):
+def update_event(request,id):
  #Admin Update Event Page
     if 'aname' in request.session:
-        event = Event.objects.get(eid=my_id)
+        event = Event.objects.get(eid=id)
         event.date = event.date.strftime('%Y-%m-%d')
         event.time = event.time.strftime('%H:%M:%S')
         data = {'event':event}
@@ -221,7 +221,7 @@ def db_ground_booking(request):
         return HttpResponse("Something went wrong!!!!!")
 
 
-def db_update_event(request,my_id):
+def db_update_event(request,id):
  #BACKEND -> For Update Event
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -229,7 +229,7 @@ def db_update_event(request,my_id):
         time = request.POST.get('time')
         duration = request.POST.get('duration')
 
-        event = Event.objects.get(eid=my_id)
+        event = Event.objects.get(eid=id)
         event.name = name
         event.date = date
         event.time = time
@@ -242,10 +242,10 @@ def db_update_event(request,my_id):
         return HttpResponse("Something went wrong!!!!!")
 
 
-def db_delete_event(request,my_id):
+def db_delete_event(request,id):
  #BACKEND -> For Delete Events
     if request.method == 'GET':
-        event = Event.objects.get(eid=my_id)
+        event = Event.objects.get(eid=id)
         event.delete()
 
         request.session['event_status'] = 'Event deleted successfuly'
